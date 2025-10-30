@@ -240,12 +240,9 @@
 
                     <!-- Спосіб оплати --><h4 class="text-xl font-semibold text-text-dark pt-4">Спосіб оплати</h4>
                     <div class="space-y-3">
+                        <!-- Залишаємо лише Накладений платіж та встановлюємо його як обраний за замовчуванням -->
                         <label class="flex items-center space-x-3 cursor-pointer">
-                            <!-- Додано name="Спосіб_оплати" для відправки через Formspree --><input type="radio" name="Спосіб_оплати" value="Оплата карткою (LiqPay/Privat24)" required checked class="form-radio h-5 w-5 text-bee-orange border-gray-300 focus:ring-bee-orange">
-                            <span class="text-text-dark">Оплата карткою (LiqPay/Privat24)</span>
-                        </label>
-                        <label class="flex items-center space-x-3 cursor-pointer">
-                            <!-- Додано name="Спосіб_оплати" для відправки через Formspree --><input type="radio" name="Спосіб_оплати" value="Накладений платіж (при отриманні)" required class="form-radio h-5 w-5 text-bee-orange border-gray-300 focus:ring-bee-orange">
+                            <!-- Додано name="Спосіб_оплати" для відправки через Formspree --><input type="radio" name="Спосіб_оплати" value="Накладений платіж (при отриманні)" required checked class="form-radio h-5 w-5 text-bee-orange border-gray-300 focus:ring-bee-orange">
                             <span class="text-text-dark">Накладений платіж (при отриманні)</span>
                         </label>
                     </div>
