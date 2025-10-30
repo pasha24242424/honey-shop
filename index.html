@@ -74,12 +74,34 @@
             </div>
         </section>
 
-        <!-- Секція 1: Мед (Основні сорти) --><section id="honey" class="mb-16">
+        <!-- Секція 1: Мед (Основні сорти, тепер розділені за об'ємом) --><section id="honey" class="mb-16">
             <h2 class="text-4xl font-bold text-center text-bee-orange mb-10 border-b-4 border-honey-yellow pb-2">
                 🍯 Натуральний Мед
             </h2>
-            <div id="honey-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Товари категорії 'honey' будуть вставлені сюди --></div>
+
+            <!-- Підсекція 150 мл --><div id="honey-150ml" class="mb-12">
+                <h3 class="text-3xl font-semibold text-text-dark mb-6 border-b-2 border-dashed border-gray-300 pb-2">Об'єм 150 мл (Міні)</h3>
+                <div id="honey-grid-150ml" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Товари 150мл будуть вставлені сюди і відсортовані за ціною --></div>
+            </div>
+
+            <!-- Підсекція 250 мл --><div id="honey-250ml" class="mb-12">
+                <h3 class="text-3xl font-semibold text-text-dark mb-6 border-b-2 border-dashed border-gray-300 pb-2">Об'єм 250 мл (Середній)</h3>
+                <div id="honey-grid-250ml" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Товари 250мл будуть вставлені сюди і відсортовані за ціною --></div>
+            </div>
+
+            <!-- Підсекція 500 мл --><div id="honey-500ml" class="mb-12">
+                <h3 class="text-3xl font-semibold text-text-dark mb-6 border-b-2 border-dashed border-gray-300 pb-2">Об'єм 500 мл (Великий)</h3>
+                <div id="honey-grid-500ml" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Товари 500мл будуть вставлені сюди і відсортовані за ціною --></div>
+            </div>
+
+            <!-- Підсекція 1 кг --><div id="honey-1kg" class="mb-12">
+                <h3 class="text-3xl font-semibold text-text-dark mb-6 border-b-2 border-dashed border-gray-300 pb-2">Об'єм 1 кг (Максі)</h3>
+                <div id="honey-grid-1kg" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Товари 1кг будуть вставлені сюди і відсортовані за ціною --></div>
+            </div>
         </section>
 
         <!-- Секція 2: Бджолині Продукти (Перга, Прополіс, Молочко) --><section id="products" class="mb-16">
@@ -266,10 +288,26 @@
 
         // Масив продуктів
         const products = [
-            // МЕД (Категорія: honey)
-            { id: 1, name: "Мед Акацієвий (1 кг)", price: 500, description: "Світлий, рідкий, має ніжний квітковий аромат. Ідеально підходить для дієтичного харчування.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png" },
-            { id: 2, name: "Мед Липовий (1 кг)", price: 500, description: "Яскравий смак і насичений аромат липового цвіту. Ефективний при застудах.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png" },
-            { id: 7, name: "Мед Соняшниковий (1 кг)", price: 500, description: "Один з найпопулярніших сортів, швидко кристалізується, має світлий колір і легкий смак.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png" },
+            // МЕД (Категорія: honey) - 1 кг
+            { id: 1, name: "Мед Акацієвий (1 кг)", price: 500, description: "Світлий, рідкий, має ніжний квітковий аромат. Ідеально підходить для дієтичного харчування.", category: "honey", volume: "1kg", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png" },
+            { id: 2, name: "Мед Липовий (1 кг)", price: 500, description: "Яскравий смак і насичений аромат липового цвіту. Ефективний при застудах.", category: "honey", volume: "1kg", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png" },
+            { id: 7, name: "Мед Соняшниковий (1 кг)", price: 500, description: "Один з найпопулярніших сортів, швидко кристалізується, має світлий колір і легкий смак.", category: "honey", volume: "1kg", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png" },
+            
+            // НОВІ ТОВАРИ: Акацієвий мед (менші об'єми)
+            { id: 11, name: "Мед Акацієвий (150 мл)", price: 120, description: "Міні-формат акацієвого меду. Чудовий для подарунків або для знайомства зі смаком.", category: "honey", volume: "150ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png" },
+            { id: 12, name: "Мед Акацієвий (250 мл)", price: 180, description: "Зручна фасовка для щоденного вживання. Світлий, рідкий, ніжний.", category: "honey", volume: "250ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png" },
+            { id: 13, name: "Мед Акацієвий (500 мл)", price: 280, description: "Середній об'єм акацієвого меду, ідеально підходить для сім'ї.", category: "honey", volume: "500ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png" },
+
+            // НОВІ ТОВАРИ: Липовий мед (менші об'єми)
+            { id: 14, name: "Мед Липовий (150 мл)", price: 120, description: "Компактний об'єм липового меду. Зігріваючий ефект при перших ознаках застуди.", category: "honey", volume: "150ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png" },
+            { id: 15, name: "Мед Липовий (250 мл)", price: 180, description: "Класичний липовий мед в середньому об'ємі. Насичений аромат та смак.", category: "honey", volume: "250ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png" },
+            { id: 16, name: "Мед Липовий (500 мл)", price: 280, description: "Липовий мед для тих, хто любить його яскравий смак.", category: "honey", volume: "500ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png" },
+
+            // НОВІ ТОВАРИ: Соняшниковий мед (менші об'єми)
+            { id: 17, name: "Мед Соняшниковий (150 мл)", price: 120, description: "Невеликий об'єм соняшникового меду. Швидко кристалізується, має легкий смак.", category: "honey", volume: "150ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png" },
+            { id: 18, name: "Мед Соняшниковий (250 мл)", price: 180, description: "Світлий, з легким присмаком соняшника. Гарна ціна для щоденного вживання.", category: "honey", volume: "250ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png" },
+            { id: 19, name: "Мед Соняшниковий (500 мл)", price: 280, description: "Найпопулярніший мед у середньому об'ємі. Для всієї родини.", category: "honey", volume: "500ml", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png" },
+
             // БДЖОЛИНІ ПРОДУКТИ (Категорія: products)
             { id: 3, name: "Перга (100 г)", price: 180, description: "Бджолиний хліб. Багате джерело вітамінів та мінералів.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/3_perga.png" },
             { id: 4, name: "Прополіс (50 г)", price: 150, description: "Природний антибіотик, використовується для настоянок та мазей.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/4_propolis.png" },
@@ -464,42 +502,86 @@
             return true; 
         }
 
-        // НОВА ФУНКЦІЯ: для відображення товарів за категоріями
-        function renderProductsByCategory(category, containerId) {
-            const grid = document.getElementById(containerId);
-            grid.innerHTML = '';
+        /**
+         * Створює HTML-картку товару.
+         * @param {Object} product - Об'єкт товару.
+         * @returns {HTMLElement} Створений елемент картки.
+         */
+        function createProductCard(product) {
+            const productCard = document.createElement('div');
+            productCard.className = 'bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1';
+            
+            productCard.innerHTML = `
+                <div class="p-0">
+                    <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-48 object-cover transition duration-300 hover:opacity-90 rounded-t-xl" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9A825/3C3C3C?text=Фото+недоступне';">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-bold text-text-dark mb-2 min-h-[56px]">${product.name}</h3>
+                    <p class="text-sm text-gray-600 mb-4 line-clamp-3">${product.description}</p>
+                    <p class="text-3xl font-extrabold text-bee-orange mb-4">${product.price} ₴</p>
+                    <button onclick="addToCart(${product.id}, '${product.name}')" 
+                            class="w-full py-2 bg-honey-yellow text-white font-semibold rounded-lg shadow-md hover:bg-bee-orange transition duration-300 transform hover:scale-[1.02]">
+                        Додати до кошика
+                    </button>
+                </div>
+            `;
+            return productCard;
+        }
 
-            const filteredProducts = products.filter(p => p.category === category);
 
-            filteredProducts.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1';
-                
-                productCard.innerHTML = `
-                    <div class="p-0">
-                        <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-48 object-cover transition duration-300 hover:opacity-90 rounded-t-xl" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9A825/3C3C3C?text=Фото+недоступне';">
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-text-dark mb-2 min-h-[56px]">${product.name}</h3>
-                        <p class="text-sm text-gray-600 mb-4 line-clamp-3">${product.description}</p>
-                        <p class="text-3xl font-extrabold text-bee-orange mb-4">${product.price} ₴</p>
-                        <button onclick="addToCart(${product.id}, '${product.name}')" 
-                                class="w-full py-2 bg-honey-yellow text-white font-semibold rounded-lg shadow-md hover:bg-bee-orange transition duration-300 transform hover:scale-[1.02]">
-                            Додати до кошика
-                        </button>
-                    </div>
-                `;
-                grid.appendChild(productCard);
+        // НОВА ФУНКЦІЯ: для відображення товарів за категоріями та об'ємом, з сортуванням
+        function renderProducts() {
+            // Фільтрація та рендеринг 'equipment' і 'products' (без змін)
+            const equipmentGrid = document.getElementById('equipment-grid');
+            const productsGrid = document.getElementById('products-grid');
+
+            equipmentGrid.innerHTML = '';
+            productsGrid.innerHTML = '';
+
+            // Фільтруємо та рендеримо обладнання
+            products.filter(p => p.category === 'equipment').forEach(p => {
+                equipmentGrid.appendChild(createProductCard(p));
             });
+
+            // Фільтруємо та рендеримо бджолині продукти
+            products.filter(p => p.category === 'products').forEach(p => {
+                productsGrid.appendChild(createProductCard(p));
+            });
+
+            // --- Сортування та рендеринг МЕДУ за об'ємом ---
+            const honeyProducts = products.filter(p => p.category === 'honey');
+
+            // Об'єми та відповідні ID контейнерів
+            const volumeGrids = {
+                '150ml': 'honey-grid-150ml',
+                '250ml': 'honey-grid-250ml',
+                '500ml': 'honey-grid-500ml',
+                '1kg': 'honey-grid-1kg',
+            };
+
+            for (const volume in volumeGrids) {
+                const containerId = volumeGrids[volume];
+                const container = document.getElementById(containerId);
+                container.innerHTML = ''; 
+
+                // 1. Фільтруємо продукти за поточним об'ємом
+                let filteredAndSortedHoney = honeyProducts.filter(p => p.volume === volume);
+
+                // 2. Сортуємо за ціною (від найменшої до найбільшої)
+                filteredAndSortedHoney.sort((a, b) => a.price - b.price);
+
+                // 3. Рендеримо відсортовані картки
+                filteredAndSortedHoney.forEach(product => {
+                    container.appendChild(createProductCard(product));
+                });
+            }
         }
 
         // Ініціалізація
         document.addEventListener('DOMContentLoaded', () => {
-            // Відображаємо товари у відповідних секціях
-            renderProductsByCategory('honey', 'honey-grid');
-            renderProductsByCategory('products', 'products-grid');
-            renderProductsByCategory('equipment', 'equipment-grid');
+            // Тепер використовуємо нову функцію, яка сортує мед за об'ємом та ціною
+            renderProducts(); 
             
             updateCartDisplay(); 
             
@@ -525,5 +607,3 @@
     </script>
 </body>
 </html>
-
-
