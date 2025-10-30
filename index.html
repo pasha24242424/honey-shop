@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Золотий Нектар - Інтернет-магазин меду</title>
-    <!-- Завантаження Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Конфігурація Tailwind для використання шрифту Inter та теплих кольорів -->
-    <script>
+    <!-- Завантаження Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Конфігурація Tailwind для використання шрифту Inter та теплих кольорів --><script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -34,24 +32,20 @@
 </head>
 <body class="bg-bg-light font-sans text-text-dark">
 
-    <!-- Хедер/Навігація -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
+    <!-- Хедер/Навігація --><header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto p-4 flex justify-between items-center max-w-7xl">
-            <!-- Логотип/Назва магазину -->
-            <a href="#" class="text-3xl font-extrabold text-honey-yellow tracking-tight hover:text-bee-orange transition duration-300">
+            <!-- Логотип/Назва магазину --><a href="#" class="text-3xl font-extrabold text-honey-yellow tracking-tight hover:text-bee-orange transition duration-300">
                 <span role="img" aria-label="Bee icon">🐝</span> Золотий Нектар
             </a>
             
-            <!-- Навігаційні посилання -->
-            <nav class="hidden md:flex space-x-6 font-semibold">
+            <!-- Навігаційні посилання --><nav class="hidden md:flex space-x-6 font-semibold">
                 <a href="#honey" class="text-text-dark hover:text-bee-orange transition duration-300">Мед</a>
                 <a href="#products" class="text-text-dark hover:text-bee-orange transition duration-300">Бджолині продукти</a>
                 <a href="#equipment" class="text-text-dark hover:text-bee-orange transition duration-300">Обладнання</a>
                 <a href="#contact" class="text-text-dark hover:text-bee-orange transition duration-300">Контакти</a>
             </nav>
 
-            <!-- Кошик (іконка) -->
-            <button id="cart-button" class="relative p-2 rounded-full bg-honey-yellow hover:bg-bee-orange transition duration-300 shadow-lg">
+            <!-- Кошик (іконка) --><button id="cart-button" class="relative p-2 rounded-full bg-honey-yellow hover:bg-bee-orange transition duration-300 shadow-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
@@ -62,8 +56,7 @@
 
     <main class="container mx-auto p-4 max-w-7xl">
         
-        <!-- Секція Героя -->
-        <section class="mb-16 bg-white rounded-xl shadow-2xl overflow-hidden md:flex items-center">
+        <!-- Секція Героя --><section class="mb-16 bg-white rounded-xl shadow-2xl overflow-hidden md:flex items-center">
             <div class="p-8 md:p-12 md:w-1/2">
                 <h1 class="text-5xl md:text-6xl font-extrabold text-bee-orange mb-4 leading-tight">
                     Справжній мед <br>від українських бджіл
@@ -75,25 +68,21 @@
                     Переглянути товари
                 </a>
             </div>
-            <!-- Placeholder Image -->
-            <div class="md:w-1/2 min-h-64 bg-yellow-100 flex items-center justify-center">
+            <!-- Placeholder Image --><div class="md:w-1/2 min-h-64 bg-yellow-100 flex items-center justify-center">
                 <img src="https://placehold.co/800x600/F9A825/ffffff?text=Мед+та+Пасіка" alt="Банка меду та бджоли" class="w-full h-full object-cover rounded-tr-xl rounded-br-xl" onerror="this.onerror=null; this.src='https://placehold.co/800x600/F9A825/ffffff?text=Мед+та+Пасіка'">
             </div>
         </section>
 
-        <!-- Секція Категорій Продуктів (для демонстрації динамічного рендерингу) -->
-        <section id="honey" class="mb-16">
+        <!-- Секція Категорій Продуктів (для демонстрації динамічного рендерингу) --><section id="honey" class="mb-16">
             <h2 class="text-4xl font-bold text-center text-bee-orange mb-10 border-b-4 border-honey-yellow pb-2">
                 🍯 Наш Асортимент
             </h2>
             
             <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Товари будуть вставлені сюди за допомогою JavaScript -->
-            </div>
+                <!-- Товари будуть вставлені сюди за допомогою JavaScript --></div>
         </section>
 
-        <!-- Секція Про Бджільництво -->
-        <section id="equipment" class="mb-16 p-8 bg-white rounded-xl shadow-xl">
+        <!-- Секція Про Бджільництво --><section id="equipment" class="mb-16 p-8 bg-white rounded-xl shadow-xl">
             <h2 class="text-4xl font-bold text-center text-bee-orange mb-8">
                 🛠️ Все для Бджільництва
             </h2>
@@ -115,8 +104,7 @@
 
     </main>
 
-    <!-- Футер -->
-    <footer id="contact" class="bg-text-dark text-white p-8 mt-12">
+    <!-- Футер --><footer id="contact" class="bg-text-dark text-white p-8 mt-12">
         <div class="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
                 <h3 class="text-xl font-bold text-honey-yellow mb-4">Золотий Нектар</h3>
@@ -134,8 +122,7 @@
                 <h3 class="text-xl font-bold mb-4">Контакти</h3>
                 <p class="text-sm">Email: info@nektar.ua</p>
                 <p class="text-sm">Телефон: +38 (050) 943 67 46</p>
-                <!-- Додано ваше ім'я у правильному місці -->
-                <p class="text-sm">просто Паша</p>
+                <!-- Ім'я "просто Паша" --><p class="text-sm">просто Паша</p>
             </div>
             <div>
                 <h3 class="text-xl font-bold mb-4">Слідкуйте за нами</h3>
@@ -150,8 +137,7 @@
         </div>
     </footer>
 
-    <!-- Модальне вікно для повідомлень (замість alert) -->
-    <div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50 transition-opacity duration-300 opacity-0">
+    <!-- Модальне вікно для повідомлень (замість alert) --><div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50 transition-opacity duration-300 opacity-0">
         <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full transform scale-95 transition-transform duration-300">
             <h3 id="modal-title" class="text-xl font-bold mb-3 text-bee-orange">Повідомлення</h3>
             <p id="modal-body" class="mb-4 text-text-dark"></p>
@@ -195,15 +181,24 @@
 
         // Масив продуктів
         const products = [
-            // ОНОВЛЕНО: Мед Акацієвий тепер коштує 500
-            { id: 1, name: "Мед Акацієвий (1 кг)", price: 500, description: "Світлий, рідкий, має ніжний квітковий аромат. Ідеально підходить для дієтичного харчування.", category: "honey", imageUrl: "https://raw.githubusercontent.com/yuriyvin/2bbps/main/images/gemini1.jpeg" },
-            // ОНОВЛЕНО: Мед Липовий тепер коштує 500
-            { id: 2, name: "Мед Липовий (1 кг)", price: 500, description: "Яскравий смак і насичений аромат липового цвіту. Ефективний при застудах.", category: "honey", imageUrl: "https://placehold.co/400x300/FF8A00/3C3C3C?text=Липовий+Мед" },
-            // Інші товари без змін
-            { id: 3, name: "Перга (100 г)", price: 180, description: "Бджолиний хліб. Багате джерело вітамінів та мінералів.", category: "products", imageUrl: "https://placehold.co/400x300/FFE082/3C3C3C?text=Перга" },
-            { id: 4, name: "Прополіс (50 г)", price: 150, description: "Природний антибіотик, використовується для настоянок та мазей.", category: "products", imageUrl: "https://placehold.co/400x300/795548/ffffff?text=Прополіс" },
-            { id: 5, name: "Набір пасічника (початковий)", price: 1500, description: "Димар, стамеска, щітка та захисна маска.", category: "equipment", imageUrl: "https://placehold.co/400x300/BCAAA4/3C3C3C?text=Набір+Пасічника" },
-            { id: 6, name: "Медогонка 3-рамкова", price: 8500, description: "Ручна медогонка з нержавіючої сталі.", category: "equipment", imageUrl: "https://placehold.co/400x300/6D4C41/ffffff?text=Медогонка" },
+            // Мед Акацієвий. ОНОВЛЕНЕ посилання на "2_akatsieviiy_med.png" у RAW форматі.
+            { id: 1, name: "Мед Акацієвий (1 кг)", price: 500, description: "Світлий, рідкий, має ніжний квітковий аромат. Ідеально підходить для дієтичного харчування.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png" },
+            // Мед Липовий. Залишаємо попереднє посилання.
+            { id: 2, name: "Мед Липовий (1 кг)", price: 500, description: "Яскравий смак і насичений аромат липового цвіту. Ефективний при застудах.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png" },
+            // Мед Соняшниковий. ОНОВЛЕНЕ посилання на "1_sonyahnucoviy_med.png" у RAW форматі.
+            { id: 7, name: "Мед Соняшниковий (1 кг)", price: 500, description: "Один з найпопулярніших сортів, швидко кристалізується, має світлий колір і легкий смак.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png" },
+            
+            // Перга. Залишаємо попереднє посилання.
+            { id: 3, name: "Перга (100 г)", price: 180, description: "Бджолиний хліб. Багате джерело вітамінів та мінералів.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/3_perga.png" },
+            // Прополіс. Залишаємо попереднє посилання.
+            { id: 4, name: "Прополіс (50 г)", price: 150, description: "Природний антибіотик, використовується для настоянок та мазей.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/4_propolis.png" },
+            // Маточне молочко. Залишаємо попереднє посилання.
+            { id: 8, name: "Маточне молочко (50 г)", price: 500, description: "Рідкісний продукт, відомий своїми потужними відновлювальними та імуномодулюючими властивостями.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/5_milk.png" },
+            
+            // Обладнання: ОНОВЛЕНЕ посилання на "Набір пасічника".
+            { id: 5, name: "Набір пасічника (початковий)", price: 1500, description: "Димар, стамеска, щітка та захисна маска.", category: "equipment", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_j6fzdfj6fzdfj6fz.png" },
+            // Обладнання: ОНОВЛЕНЕ посилання на "Медогонка 3-рамкова".
+            { id: 6, name: "Медогонка 3-рамкова", price: 8500, description: "Ручна медогонка з нержавіючої сталі.", category: "equipment", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_18ag5k18ag5k18ag.png" },
         ];
 
         // Функція для додавання товару в кошик
@@ -224,16 +219,16 @@
                 
                 // Визначення якоря для прокрутки
                 let anchorId = '';
-                if (product.category === 'honey') {
-                    anchorId = 'honey';
-                } else if (product.category === 'products') {
-                    anchorId = 'products';
+                if (product.category === 'honey' || product.category === 'products') {
+                    // Мед та Бджолині продукти відображаються в одній секції #honey
+                    anchorId = 'honey'; 
                 } else if (product.category === 'equipment') {
                     anchorId = 'equipment';
                 }
 
                 productCard.innerHTML = `
                     <div id="${anchorId}" class="p-0">
+                        <!-- Важливо: використовуємо нове посилання на GitHub -->
                         <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-48 object-cover transition duration-300 hover:opacity-90 rounded-t-xl" 
                              onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9A825/3C3C3C?text=Фото+недоступне';">
                     </div>
