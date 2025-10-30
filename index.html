@@ -68,8 +68,8 @@
                     Переглянути товари
                 </a>
             </div>
-            <!-- Placeholder Image --><div class="md:w-1/2 min-h-64 bg-yellow-100 flex items-center justify-center">
-                <img src="https://placehold.co/800x600/F9A825/ffffff?text=Мед+та+Пасіка" alt="Банка меду та бджоли" class="w-full h-full object-cover rounded-tr-xl rounded-br-xl" onerror="this.onerror=null; this.src='https://placehold.co/800x600/F9A825/ffffff?text=Мед+та+Пасіка'">
+            <!-- ОНОВЛЕНЕ Зображення для секції Hero --><div class="md:w-1/2 min-h-64 bg-yellow-100 flex items-center justify-center">
+                <img src="https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_vvfltlvvfltlvvfl.png" alt="Фон з медом та бджолами" class="w-full h-full object-cover rounded-tr-xl rounded-br-xl" onerror="this.onerror=null; this.src='https://placehold.co/800x600/F9A825/ffffff?text=Мед+та+Пасіка'">
             </div>
         </section>
 
@@ -181,23 +181,23 @@
 
         // Масив продуктів
         const products = [
-            // Мед Акацієвий. ОНОВЛЕНЕ посилання на "2_akatsieviiy_med.png" у RAW форматі.
+            // Мед Акацієвий. Посилання на RAW формат.
             { id: 1, name: "Мед Акацієвий (1 кг)", price: 500, description: "Світлий, рідкий, має ніжний квітковий аромат. Ідеально підходить для дієтичного харчування.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png" },
-            // Мед Липовий. Залишаємо попереднє посилання.
+            // Мед Липовий. Посилання на RAW формат.
             { id: 2, name: "Мед Липовий (1 кг)", price: 500, description: "Яскравий смак і насичений аромат липового цвіту. Ефективний при застудах.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png" },
-            // Мед Соняшниковий. ОНОВЛЕНЕ посилання на "1_sonyahnucoviy_med.png" у RAW форматі.
+            // Мед Соняшниковий. Посилання на RAW формат.
             { id: 7, name: "Мед Соняшниковий (1 кг)", price: 500, description: "Один з найпопулярніших сортів, швидко кристалізується, має світлий колір і легкий смак.", category: "honey", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png" },
             
-            // Перга. Залишаємо попереднє посилання.
+            // Перга. Посилання на RAW формат.
             { id: 3, name: "Перга (100 г)", price: 180, description: "Бджолиний хліб. Багате джерело вітамінів та мінералів.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/3_perga.png" },
-            // Прополіс. Залишаємо попереднє посилання.
+            // Прополіс. Посилання на RAW формат.
             { id: 4, name: "Прополіс (50 г)", price: 150, description: "Природний антибіотик, використовується для настоянок та мазей.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/4_propolis.png" },
-            // Маточне молочко. Залишаємо попереднє посилання.
+            // Маточне молочко. Посилання на RAW формат.
             { id: 8, name: "Маточне молочко (50 г)", price: 500, description: "Рідкісний продукт, відомий своїми потужними відновлювальними та імуномодулюючими властивостями.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/5_milk.png" },
             
-            // Обладнання: ОНОВЛЕНЕ посилання на "Набір пасічника".
+            // Обладнання: Набір пасічника. Посилання на RAW формат.
             { id: 5, name: "Набір пасічника (початковий)", price: 1500, description: "Димар, стамеска, щітка та захисна маска.", category: "equipment", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_j6fzdfj6fzdfj6fz.png" },
-            // Обладнання: ОНОВЛЕНЕ посилання на "Медогонка 3-рамкова".
+            // Обладнання: Медогонка 3-рамкова. Посилання на RAW формат.
             { id: 6, name: "Медогонка 3-рамкова", price: 8500, description: "Ручна медогонка з нержавіючої сталі.", category: "equipment", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_18ag5k18ag5k18ag.png" },
         ];
 
@@ -228,8 +228,7 @@
 
                 productCard.innerHTML = `
                     <div id="${anchorId}" class="p-0">
-                        <!-- Важливо: використовуємо нове посилання на GitHub -->
-                        <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-48 object-cover transition duration-300 hover:opacity-90 rounded-t-xl" 
+                        <!-- Важливо: використовуємо нове посилання на GitHub --><img src="${product.imageUrl}" alt="${product.name}" class="w-full h-48 object-cover transition duration-300 hover:opacity-90 rounded-t-xl" 
                              onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9A825/3C3C3C?text=Фото+недоступне';">
                     </div>
                     <div class="p-5">
