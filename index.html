@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сонячний Нектар - Інтернет-магазин меду</title>
-    <!-- Завантаження Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Конфігурація Tailwind для використання шрифту Inter та теплих кольорів --><script>
+    
+    <!-- Підключення Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Конфігурація Tailwind -->
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -28,25 +32,38 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Стиль для смуги прокрутки в модальному вікні */
+        #cart-summary-items::-webkit-scrollbar {
+            width: 8px;
+        }
+        #cart-summary-items::-webkit-scrollbar-thumb {
+            background-color: #F9A825;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body class="bg-bg-light font-sans text-text-dark">
 
-    <!-- Хедер/Навігація --><header class="sticky top-0 z-50 bg-white shadow-md">
+    <!-- Хедер/Навігація -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto p-4 flex justify-between items-center max-w-7xl">
-            <!-- Логотип/Назва магазину --><a href="#" class="text-3xl font-extrabold text-honey-yellow tracking-tight hover:text-bee-orange transition duration-300">
+            
+            <!-- Логотип -->
+<a href="#" class="text-3xl font-extrabold text-honey-yellow tracking-tight hover:text-bee-orange transition duration-300">
                 <span role="img" aria-label="Bee icon">🐝</span> Сонячний Нектар
             </a>
             
-            <!-- Навігаційні посилання (Оновлено) --><nav class="hidden md:flex space-x-4 font-semibold">
+            <!-- Навігаційні посилання -->
+<nav class="hidden md:flex space-x-4 font-semibold">
                 <a href="#honey-large" class="text-text-dark hover:text-bee-orange transition duration-300">Мед (0.5 кг)</a>
                 <a href="#honey-medium" class="text-text-dark hover:text-bee-orange transition duration-300">Мед (0.3 кг)</a>
-                <a href="#honey-small" class="text-text-dark hover:text-bee-orange transition duration-300">Мед (0.1 кг)</a>
+                <a href="#honey-small" class="text-text-dark hover:text-bee-orange transition duration-300">Крем-мед Міні</a>
                 <a href="#products" class="text-text-dark hover:text-bee-orange transition duration-300">Бджолині продукти</a>
                 <a href="#contact" class="text-text-dark hover:text-bee-orange transition duration-300">Контакти</a>
             </nav>
 
-            <!-- Кошик (іконка) --><button id="cart-button" class="relative p-2 rounded-full bg-honey-yellow hover:bg-bee-orange transition duration-300 shadow-lg">
+            <!-- Кнопка кошика -->
+<button id="cart-button" class="relative p-2 rounded-full bg-honey-yellow hover:bg-bee-orange transition duration-300 shadow-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
@@ -57,7 +74,8 @@
 
     <main class="container mx-auto p-4 max-w-7xl">
         
-        <!-- Секція Героя --><section class="mb-16 bg-white rounded-xl shadow-2xl overflow-hidden md:flex items-center">
+        <!-- Головний банер -->
+<section class="mb-16 bg-white rounded-xl shadow-2xl overflow-hidden md:flex items-center">
             <div class="p-8 md:p-12 md:w-1/2">
                 <h1 class="text-5xl md:text-6xl font-extrabold text-bee-orange mb-4 leading-tight">
                     Справжній мед <br>від українських бджіл
@@ -65,50 +83,101 @@
                 <p class="text-lg text-text-dark mb-6">
                     Обирайте натуральні продукти бджільництва для зміцнення здоров'я.
                 </p>
-                <a href="#honey-large" class="inline-block px-8 py-3 bg-honey-yellow text-white font-bold rounded-full shadow-xl hover:bg-bee-orange transform hover:scale-105 transition duration-300">
-                    Переглянути товари
+                <a href="#quality-section" class="inline-block px-8 py-3 bg-honey-yellow text-white font-bold rounded-full shadow-xl hover:bg-bee-orange transform hover:scale-105 transition duration-300">
+                    Наші переваги
                 </a>
             </div>
-            <!-- Зображення для секції Hero --><div class="md:w-1/2 min-h-64 bg-yellow-100 flex items-center justify-center">
+            
+            <!-- Зображення банера -->
+<div class="md:w-1/2 min-h-64 bg-yellow-100 flex items-center justify-center">
                 <img src="https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_vvfltlvvfltlvvfl.png" alt="Фон з медом та бджолами" class="w-full h-full object-cover rounded-tr-xl rounded-br-xl" onerror="this.onerror=null; this.src='https://placehold.co/800x600/F9A825/ffffff?text=Мед+та+Пасіка'">
             </div>
         </section>
 
-        <!-- Секція 1: Мед (0.5 кг) --><section id="honey-large" class="mb-16">
+        <!-- НОВА СЕКЦІЯ: Якість та Переваги -->
+<section id="quality-section" class="mb-16 bg-white p-8 md:p-12 rounded-xl shadow-2xl border-t-4 border-bee-orange">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-extrabold text-bee-orange mb-6">
+                    Наш Мед: Якість, Якій Довіряють
+                </h2>
+                <p class="text-lg text-text-dark mb-8">
+                    Ми пропонуємо тільки натуральний, зрілий мед, зібраний у чистих регіонах. Ми гарантуємо:
+                </p>
+                
+                <!-- Список переваг -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="p-4 bg-bg-light rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        <p class="text-xl font-bold text-text-dark">100% Натуральність</p>
+                        <p class="text-sm text-gray-600">Без добавок, консервантів та термічної обробки.</p>
+                    </div>
+                    <div class="p-4 bg-bg-light rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        <p class="text-xl font-bold text-text-dark">Різноманіття Смаків</p>
+                        <p class="text-sm text-gray-600">Від запашного липового до насиченого гречаного – оберіть свій улюблений!</p>
+                    </div>
+                    <div class="p-4 bg-bg-light rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        <p class="text-xl font-bold text-text-dark">Турбота про Природу</p>
+                        <p class="text-sm text-gray-600">Ми підтримуємо екологічне бджільництво.</p>
+                    </div>
+                </div>
+
+                <p class="text-xl font-semibold text-text-dark mb-4">
+                     Не відмовляйте собі в задоволенні бути здоровим!
+                </p>
+                <p class="text-md text-gray-700 mb-8">
+                    Додайте ложечку нашого меду до чаю, ранкової каші або просто насолоджуйтесь ним у чистому вигляді. Оберіть свій ідеальний мед сьогодні та відчуйте всю його природну силу!
+                </p>
+
+                <a href="#honey-large" class="inline-block px-8 py-3 bg-bee-orange text-white font-bold rounded-full shadow-xl hover:bg-honey-yellow transform hover:scale-105 transition duration-300">
+                    Переглянути всі сорти меду
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Категорія: Мед (0.5 кг) -->
+<section id="honey-large" class="mb-16">
             <h2 class="text-4xl font-bold text-center text-bee-orange mb-10 border-b-4 border-honey-yellow pb-2">
                 🍯 Натуральний Мед (0.5 кг)
             </h2>
             <div id="honey-large-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Товари категорії 'honey-large' будуть вставлені сюди --></div>
+                <!-- Товари будуть тут -->
+</div>
         </section>
 
-        <!-- Секція 2: Мед (0.3 кг) --><section id="honey-medium" class="mb-16">
+        <!-- Категорія: Мед (0.3 кг) -->
+<section id="honey-medium" class="mb-16">
             <h2 class="text-4xl font-bold text-center text-bee-orange mb-10 border-b-4 border-honey-yellow pb-2">
                 ⚖️ Середня Тара Меду (0.3 кг)
             </h2>
             <div id="honey-medium-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Товари категорії 'honey-medium' будуть вставлені сюди --></div>
+                <!-- Товари будуть тут -->
+</div>
         </section>
 
-        <!-- Секція 3: Мед (0.1 кг) --><section id="honey-small" class="mb-16">
+        <!-- Категорія: Крем-мед Міні (0.1 кг) -->
+<section id="honey-small" class="mb-16">
             <h2 class="text-4xl font-bold text-center text-bee-orange mb-10 border-b-4 border-honey-yellow pb-2">
-                🥄 Мед для Спроби (0.1 кг)
+                🥭 Крем-мед Міні (0.1 кг)
             </h2>
             <div id="honey-small-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Товари категорії 'honey-small' будуть вставлені сюди --></div>
+                <!-- Товари будуть тут -->
+</div>
         </section>
 
-        <!-- Секція 4: Бджолині Продукти (Перга, Прополіс, Молочко) --><section id="products" class="mb-16">
+        <!-- Категорія: Бджолині Продукти -->
+<section id="products" class="mb-16">
             <h2 class="text-4xl font-bold text-center text-bee-orange mb-10 border-b-4 border-honey-yellow pb-2">
                 🌿 Бджолині Продукти для Здоров'я
             </h2>
             <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Товари категорії 'products' будуть вставлені сюди --></div>
+                <!-- Товари будуть тут -->
+</div>
         </section>
 
     </main>
 
-    <!-- Футер --><footer id="contact" class="bg-text-dark text-white p-8 mt-12">
+    <!-- Футер та Контакти -->
+<footer id="contact" class="bg-text-dark text-white p-8 mt-12">
         <div class="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
                 <h3 class="text-xl font-bold text-honey-yellow mb-4">Сонячний Нектар</h3>
@@ -119,7 +188,7 @@
                 <ul class="space-y-2">
                     <li><a href="#honey-large" class="hover:text-honey-yellow transition duration-300">Мед (0.5 кг)</a></li>
                     <li><a href="#honey-medium" class="hover:text-honey-yellow transition duration-300">Мед (0.3 кг)</a></li>
-                    <li><a href="#honey-small" class="hover:text-honey-yellow transition duration-300">Мед (0.1 кг)</a></li>
+                    <li><a href="#honey-small" class="hover:text-honey-yellow transition duration-300">Крем-мед Міні</a></li>
                     <li><a href="#products" class="hover:text-honey-yellow transition duration-300">Бджолині продукти</a></li>
                     <li><a href="#contact" class="hover:text-honey-yellow transition duration-300">Контакти</a></li>
                 </ul>
@@ -142,7 +211,8 @@
         </div>
     </footer>
 
-    <!-- Модальне вікно для повідомлень (замість alert) --><div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50 transition-opacity duration-300 opacity-0">
+    <!-- Модалка повідомлень -->
+<div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50 transition-opacity duration-300 opacity-0">
         <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full transform scale-95 transition-transform duration-300">
             <h3 id="modal-title" class="text-xl font-bold mb-3 text-bee-orange">Повідомлення</h3>
             <p id="modal-body" class="mb-4 text-text-dark"></p>
@@ -152,7 +222,8 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНЕ ВІКНО ОФОРМЛЕННЯ ЗАМОВЛЕННЯ (CHECKOUT) --><div id="checkout-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex flex-col items-center justify-start z-50 transition-opacity duration-300 opacity-0 overflow-y-auto">
+    <!-- Модалка оформлення замовлення -->
+<div id="checkout-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex flex-col items-center justify-start z-50 transition-opacity duration-300 opacity-0 overflow-y-auto">
         <div class="bg-white m-4 rounded-xl shadow-2xl max-w-4xl w-full p-6 md:p-10 transform transition-transform duration-300 my-8">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-extrabold text-bee-orange">🛒 Оформлення замовлення</h2>
@@ -160,11 +231,12 @@
             </div>
 
             <form id="checkout-form" 
-                  action="https://formspree.io/f/xjkprnno" 
-                  method="POST" 
-                  onsubmit="return prepareOrderSubmission(event)" 
-                  class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Секція 1: Контактні дані та Доставка --><div class="lg:col-span-2 space-y-6 bg-bg-light p-6 rounded-lg shadow-inner">
+                action="https://formspree.io/f/xjkprnno" 
+                method="POST" 
+                class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Інформація про клієнта та доставку -->
+<div class="lg:col-span-2 space-y-6 bg-bg-light p-6 rounded-lg shadow-inner">
                     <h3 class="text-2xl font-bold text-text-dark border-b pb-2 mb-4">1. Ваші дані та Доставка</h3>
                     
                     <div>
@@ -175,7 +247,9 @@
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label for="phone" class="block text-sm font-medium text-text-dark mb-1">Телефон (Обов'язково)</label>
-                            <!-- Додано inputmode="tel" для мобільної клавіатури --><input type="tel" id="phone" name="Телефон" inputmode="tel" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-honey-yellow focus:border-honey-yellow transition duration-300" placeholder="+38 (XXX) XXX XX XX">
+                            
+                            <!-- Введення телефону -->
+<input type="tel" id="phone" name="Телефон" inputmode="tel" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-honey-yellow focus:border-honey-yellow transition duration-300" placeholder="+38 (XXX) XXX XX XX">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-text-dark mb-1">Email (Не обов'язково)</label>
@@ -198,7 +272,9 @@
                         </select>
                     </div>
 
-                    <!-- Поле для номера відділення НП --><div id="nova-poshta-branch-group" class="hidden space-y-2">
+                    
+                    <!-- Поле для відділення НП (відображається лише для НП) -->
+<div id="nova-poshta-branch-group" class="hidden space-y-2">
                         <label for="np-branch" class="block text-sm font-medium text-text-dark mb-1">Номер відділення або Поштомату НП (Обов'язково)</label>
                         <input type="text" id="np-branch" name="Відділення_НП" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-honey-yellow focus:border-honey-yellow transition duration-300" placeholder="Наприклад: Відділення №15 або Поштомат №20001">
                         <p id="np-hint" class="text-xs text-gray-500">Вкажіть точний номер відділення або поштомату Нової Пошти.</p>
@@ -206,20 +282,27 @@
 
                 </div>
 
-                <!-- Секція 2: Підсумок та Оплата --><div class="lg:col-span-1 space-y-6 bg-white p-6 rounded-lg shadow-xl border-t-4 border-bee-orange">
+                <!-- Підсумок та Оплата -->
+<div class="lg:col-span-1 space-y-6 bg-white p-6 rounded-lg shadow-xl border-t-4 border-bee-orange">
                     <h3 class="text-2xl font-bold text-text-dark border-b pb-2 mb-4">2. Підсумок та Оплата</h3>
                     
-                    <!-- Перелік товарів --><div id="cart-summary-items" class="space-y-2 max-h-48 overflow-y-auto pr-2">
-                        <!-- Сюди будуть вставлені товари з кошика --></div>
+                    <!-- Список товарів у кошику -->
+<div id="cart-summary-items" class="space-y-2 max-h-48 overflow-y-auto pr-2">
+                        <!-- Тут буде підсумок кошика -->
+</div>
 
-                    <!-- Сума --><div class="py-3 border-t-2 border-honey-yellow mt-4">
+                    
+                    <!-- Загальна сума -->
+<div class="py-3 border-t-2 border-honey-yellow mt-4">
                         <div class="flex justify-between items-center text-xl font-bold">
                             <span class="text-text-dark">Разом до сплати:</span>
                             <span id="cart-total" class="text-3xl font-extrabold text-bee-orange">0 ₴</span>
                         </div>
                     </div>
 
-                    <!-- Спосіб оплати --><h4 class="text-xl font-semibold text-text-dark pt-4">Спосіб оплати</h4>
+                    
+                    <!-- Спосіб оплати -->
+<h4 class="text-xl font-semibold text-text-dark pt-4">Спосіб оплати</h4>
                     <div class="space-y-3">
                         <label class="flex items-center space-x-3 cursor-pointer">
                             <input type="radio" name="Спосіб_оплати" value="Оплата карткою (LiqPay/Privat24)" required checked class="form-radio h-5 w-5 text-bee-orange border-gray-300 focus:ring-bee-orange">
@@ -231,10 +314,15 @@
                         </label>
                     </div>
 
-                    <!-- Прихований інпут для деталей замовлення (заповнюється JS) --><input type="hidden" id="Order_Details" name="Деталі_Замовлення" value="">
-                    <!-- Прихований інпут для теми листа --><input type="hidden" id="_subject" name="_subject" value="">
+                    
+                    <!-- Приховані поля для відправки даних -->
+<input type="hidden" id="Order_Details" name="Деталі_Замовлення" value="">
+                    
+<input type="hidden" id="_subject" name="_subject" value="">
 
-                    <!-- Кнопка Оформити замовлення --><button type="submit" class="w-full mt-6 py-4 text-xl bg-bee-orange text-white font-bold rounded-xl shadow-lg hover:bg-honey-yellow transition duration-300 transform hover:scale-[1.01]">
+                    
+                    <!-- Кнопка відправки замовлення -->
+<button type="submit" id="submit-order-button" class="w-full mt-6 py-4 text-xl bg-bee-orange text-white font-bold rounded-xl shadow-lg hover:bg-honey-yellow transition duration-300 transform hover:scale-[1.01]">
                         ПІДТВЕРДИТИ ЗАМОВЛЕННЯ
                     </button>
                 </div>
@@ -273,22 +361,22 @@
         let cart = []; // Глобальний масив для зберігання товарів у кошику
         const cartCountElement = document.getElementById('cart-count');
 
-        // ОНОВЛЕНИЙ Масив продуктів (Додано поле isDiscounted)
+        // Масив продуктів
         const products = [
             // МЕД (Категорія: honey-large, 0.5 кг)
             { id: 1, name: "Мед Акацієвий (0.5 кг)", price: 250, description: "Світлий, рідкий, має ніжний квітковий аромат. Ідеально підходить для дієтичного харчування.", category: "honey-large", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png", isDiscounted: true },
             { id: 2, name: "Мед Липовий (0.5 кг)", price: 250, description: "Яскравий смак і насичений аромат липового цвіту. Ефективний при застудах.", category: "honey-large", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png", isDiscounted: false },
             { id: 7, name: "Мед Соняшниковий (0.5 кг)", price: 250, description: "Один з найпопулярніших сортів, швидко кристалізується, має світлий колір і легкий смак.", category: "honey-large", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png", isDiscounted: true },
 
-            // НОВІ ПОЗИЦІЇ МЕДУ (Категорія: honey-medium, 0.3 кг)
+            // МЕД (Категорія: honey-medium, 0.3 кг)
             { id: 201, name: "Мед Акацієвий (0.3 кг)", price: 150, description: "Оптимальний об'єм для невеликої родини.", category: "honey-medium", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png", isDiscounted: false },
             { id: 202, name: "Мед Липовий (0.3 кг)", price: 150, description: "Ідеальний вибір для щоденного споживання.", category: "honey-medium", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png", isDiscounted: true },
             { id: 203, name: "Мед Соняшниковий (0.3 кг)", price: 130, description: "Середня тара, зручна для зберігання.", category: "honey-medium", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png", isDiscounted: false },
             
-            // МЕД (Категорія: honey-small, 0.1 кг)
-            { id: 101, name: "Мед Акацієвий (100 г)", price: 60, description: "Ідеально підходить для дегустації або невеликого подарунку.", category: "honey-small", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/2_akatsieviiy_med.png", isDiscounted: false },
-            { id: 102, name: "Мед Липовий (100 г)", price: 60, description: "Маленька порція для чаювання або знайомства зі смаком липи.", category: "honey-small", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/Gemini_Generated_Image_fka28bfka28bfka2.png", isDiscounted: false },
-            { id: 103, name: "Мед Соняшниковий (100 г)", price: 50, description: "Економічна тара для швидкого споживання.", category: "honey-small", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/1_sonyahnucoviy_med.png", isDiscounted: false },
+            // КРЕМ-МЕД МІНІ (Категорія: honey-small, 0.1 кг)
+            { id: 101, name: "Крем-мед Банановий (100 г)", price: 85, description: "Ніжний кремовий мед з солодким смаком банана. Чудовий для сніданків.", category: "honey-small", imageUrl: "https://placehold.co/400x300/F9A825/3C3C3C?text=Крем-мед+Банан", isDiscounted: false }, 
+            { id: 102, name: "Крем-мед Апельсиновий (100 г)", price: 85, description: "Сонячний смак апельсина та ніжна кремова текстура. Багатий на вітамін С.", category: "honey-small", imageUrl: "https://placehold.co/400x300/FF8A00/FFFFFF?text=Крем-мед+Апельсин", isDiscounted: false },
+            { id: 103, name: "Класичний Крем-мед (100 г)", price: 70, description: "Ніжна, повітряна текстура, виготовлений з добірного соняшникового меду.", category: "honey-small", imageUrl: "https://placehold.co/400x300/FFFBEA/3C3C3C?text=Класичний+Крем-мед", isDiscounted: false },
 
             // БДЖОЛИНІ ПРОДУКТИ (Категорія: products)
             { id: 3, name: "Перга (100 г)", price: 180, description: "Бджолиний хліб. Багате джерело вітамінів та мінералів.", category: "products", imageUrl: "https://raw.githubusercontent.com/pasha24242424/honey-shop/main/images/3_perga.png", isDiscounted: false },
@@ -302,7 +390,7 @@
             cartCountElement.textContent = totalQuantity;
         }
 
-        // Функція для додавання товару в кошик (ОНОВЛЕНО: враховує знижку)
+        // Функція для додавання товару в кошик
         function addToCart(productId, productName) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
@@ -347,7 +435,7 @@
             summaryContainer.innerHTML = '';
 
             if (cart.length === 0) {
-                summaryContainer.innerHTML = '<p class="text-center text-gray-500 py-4">Кошик порожній.</p>';
+                summaryContainer.innerHTML = '<p class="text-center text-gray-500 py-4">Кошик порожній. Будь ласка, додайте товари.</p>';
             }
 
             cart.forEach(item => {
@@ -363,7 +451,9 @@
                     </div>
                     <div class="flex items-center min-w-max">
                         <span class="text-lg font-semibold text-bee-orange ml-4">${itemTotal} ₴</span>
-                        <!-- Кнопка Видалити --><button onclick="removeFromCart(${item.id})" 
+                        
+                        <!-- Кнопка видалення -->
+<button onclick="removeFromCart(${item.id})" 
                                 class="ml-4 text-red-500 hover:text-red-700 transition duration-150 p-1 rounded-full hover:bg-red-100" 
                                 title="Видалити товар">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -422,7 +512,7 @@
             }, 300);
         }
 
-        // Функція: готує дані та дозволяє відправку форми на Formspree
+        // Функція: готує дані та виконує ВАЛІДАЦІЮ
         function prepareOrderSubmission(event) {
             
             // Якщо кошик порожній, забороняємо відправку
@@ -435,7 +525,7 @@
             const form = document.getElementById('checkout-form');
             const formData = new FormData(form);
             
-            // Використовуємо імена полів, які ми встановили в HTML
+            // Збір даних для валідації
             const name = formData.get('ПІБ');
             const phone = formData.get('Телефон');
             const city = formData.get('Місто');
@@ -465,19 +555,13 @@
             
             // 2. Заповнення прихованого поля з деталями замовлення
             const orderDetailsInput = document.getElementById('Order_Details');
-            // Formspree коректно обробляє багаторядковий текст, коли він введений у полі
             orderDetailsInput.value = orderDetails; 
             
             // 3. Заповнення прихованого поля з темою листа
             const subjectInput = document.getElementById('_subject');
             subjectInput.value = `Нове замовлення (${new Date().toLocaleDateString('uk-UA')}) від ${name}`;
 
-            // 4. Очищаємо кошик (це відбувається після успішної відправки через Formspree)
-            
-            // Закриваємо модалку
-            closeCheckoutModal(); 
-            
-            // Повертаємо true, щоб дозволити формі відправитись на Formspree
+            // Якщо валідація пройшла, повертаємо true (але фактична відправка буде через addEventListener)
             return true; 
         }
 
@@ -504,73 +588,106 @@
                     </div>
                 ` : '';
 
-                // Встановлюємо клас relative для позиціонування значка
+                // Логіка зображення залишається незмінною (для крем-меду використовуємо placeholder з опису)
+                const imageSrc = product.imageUrl;
+
+
                 const productCard = document.createElement('div');
-                productCard.className = 'bg-white rounded-xl shadow-xl overflow-hidden relative hover:shadow-2xl transition duration-300 transform hover:-translate-y-1';
-                
-                // Логіка зображення залишається незмінною
-                const isSmallJar = product.category === 'honey-small';
-                const imageSrc = isSmallJar 
-                    ? `https://placehold.co/400x300/F9A825/3C3C3C?text=${product.name.replace(/ /g, '+')}`
-                    : product.imageUrl;
+                productCard.className = 'bg-white rounded-xl shadow-lg overflow-hidden relative transition transform hover:scale-[1.02] duration-300 border border-gray-100';
+
 
                 productCard.innerHTML = `
-                    <!-- Значок знижки -->${discountBadge} 
-                    
-                    <div class="p-0">
-                        <img src="${imageSrc}" alt="${product.name}" class="w-full h-48 object-cover transition duration-300 hover:opacity-90 rounded-t-xl" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9A825/3C3C3C?text=Фото+недоступне';">
+                    ${discountBadge}
+                    <div class="h-48 overflow-hidden rounded-t-xl bg-gray-100">
+                        <img src="${imageSrc}" alt="${product.name}" 
+                                class="w-full h-full object-cover" 
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x300/F9A825/3C3C3C?text=${product.name.replace(/ /g, '+')}'">
                     </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-text-dark mb-2 min-h-[56px]">${product.name}</h3>
-                        <p class="text-sm text-gray-600 mb-4 line-clamp-3">${product.description}</p>
+                    <div class="p-4 flex flex-col justify-between h-auto">
+                        <h3 class="text-xl font-bold text-text-dark mb-2">${product.name}</h3>
+                        <p class="text-sm text-gray-600 mb-4 flex-grow">${product.description}</p>
                         
-                        <!-- Блок ціни (ОНОВЛЕНО: відображення знижки) --><div class="mb-4 min-h-[48px]">
-                            ${isDiscounted ? 
-                                `<p class="text-sm text-gray-400 line-through">${originalPrice} ₴</p>
-                                 <p class="text-3xl font-extrabold text-bee-orange">${discountedPrice} ₴</p>`
-                                : 
-                                `<p class="text-3xl font-extrabold text-bee-orange">${originalPrice} ₴</p>`
-                            }
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex flex-col">
+                                ${isDiscounted 
+                                    ? `<span class="text-xs text-gray-400 line-through">${originalPrice} ₴</span>` 
+                                    : ''}
+                                <span class="text-2xl font-extrabold text-bee-orange">${discountedPrice} ₴</span>
+                            </div>
+                            
+                            <button onclick="addToCart(${product.id}, '${product.name}')" 
+                                    class="px-4 py-2 bg-honey-yellow text-white font-bold rounded-lg shadow-md hover:bg-bee-orange transition duration-300 transform hover:scale-105 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                                Купити
+                            </button>
                         </div>
-                        
-                        <button onclick="addToCart(${product.id}, '${product.name}')" 
-                                class="w-full py-2 bg-honey-yellow text-white font-semibold rounded-lg shadow-md hover:bg-bee-orange transition duration-300 transform hover:scale-[1.02]">
-                            Додати до кошика
-                        </button>
                     </div>
                 `;
                 grid.appendChild(productCard);
             });
         }
 
-        // Ініціалізація
+        // Ініціалізація та налаштування
         document.addEventListener('DOMContentLoaded', () => {
-            // Відображаємо товари у відповідних секціях
+            // 1. Рендер всіх категорій товарів
             renderProductsByCategory('honey-large', 'honey-large-grid');
-            renderProductsByCategory('honey-medium', 'honey-medium-grid'); 
-            renderProductsByCategory('honey-small', 'honey-small-grid'); 
+            renderProductsByCategory('honey-medium', 'honey-medium-grid');
+            renderProductsByCategory('honey-small', 'honey-small-grid');
             renderProductsByCategory('products', 'products-grid');
-            
-            updateCartDisplay(); 
-            
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
+
+            // 2. Додати обробник подій для кнопки кошика
+            document.getElementById('cart-button').addEventListener('click', openCheckoutModal);
+
+            // 3. Обробка відправки форми Formspree через Fetch API (для уникнення перезавантаження сторінки)
+            const checkoutForm = document.getElementById('checkout-form');
+            checkoutForm.addEventListener('submit', function(e) {
+                // Викликаємо функцію валідації та підготовки даних
+                if (prepareOrderSubmission(e) === true) {
+                    e.preventDefault(); // Зупиняємо стандартну відправку форми
+
+                    const submitButton = document.getElementById('submit-order-button');
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Надсилаємо...';
+
+                    const formData = new FormData(checkoutForm);
+                    
+                    fetch(checkoutForm.action, {
+                        method: checkoutForm.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json' // Важливо для AJAX-відповіді від Formspree
+                        }
+                    })
+                    .then(response => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'ПІДТВЕРДИТИ ЗАМОВЛЕННЯ';
+
+                        if (response.ok || response.status === 200) { 
+                            cart = []; // Очистити кошик
+                            updateCartDisplay();
+                            renderCartSummary(); // Оновити модалку (буде порожньою)
+                            closeCheckoutModal(); // Закрити модалку оформлення
+                            showModal("Замовлення прийнято!", "Дякуємо! Ваше замовлення було успішно надіслано. Ми зв'яжемося з Вами протягом робочого дня.");
+                            checkoutForm.reset(); // Очистити поля форми
+                        } else {
+                            // Якщо Formspree повернув помилку
+                            showModal("Помилка відправки", "Виникла помилка під час відправки замовлення. Спробуйте пізніше або зв'яжіться з нами по телефону.");
+                        }
+                    })
+                    .catch(error => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'ПІДТВЕРДИТИ ЗАМОВЛЕННЯ';
+                        showModal("Помилка мережі", "Не вдалося з'єднатися з сервером. Перевірте Ваше інтернет-з'єднання.");
+                        console.error('Fetch error:', error);
+                    });
+                } else {
+                    e.preventDefault(); // Валідація не пройшла
+                }
             });
 
-            // Обробник натискання на кнопку кошика
-            document.getElementById('cart-button').addEventListener('click', openCheckoutModal);
-            
-            // Перевіряємо початковий стан поля відділення при завантаженні
-            handleDeliveryChange();
+
         });
     </script>
 </body>
