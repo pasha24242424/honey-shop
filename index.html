@@ -159,6 +159,15 @@
             <h2 class="text-4xl font-bold text-center text-bee-orange mb-10 border-b-4 border-honey-yellow pb-2">
                 🥭 Крем-мед Міні (0.1 кг)
             </h2>
+            <!-- Новий опис крем-меду -->
+            <p class="text-lg text-text-dark max-w-4xl mx-auto text-center mb-10 bg-white p-6 rounded-lg shadow-lg border-l-4 border-bee-orange">
+                <strong>Що таке крем-мед?</strong> Це 100% натуральний мед, який пройшов спеціальний процес кремування (збивання) при низькій температурі. 
+                Завдяки цьому він набуває ніжної, пастоподібної консистенції, схожої на вершкове масло.
+                <br><br>
+                <strong>Чим він відрізняється?</strong> На відміну від звичайного меду, крем-мед не кристалізується і не твердне з часом, зберігаючи свою м'яку текстуру. 
+                Він так само корисний, як і рідкий мед, містить усі ті ж вітаміни та мікроелементи, але його набагато зручніше намащувати на хліб, тости чи додавати до десертів, і він не розтікається.
+            </p>
+            <!-- Кінець нового опису -->
             <div id="honey-small-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 <!-- Товари будуть тут -->
             </div>
@@ -224,16 +233,16 @@
 
     <!-- Модалка оформлення замовлення -->
     <div id="checkout-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex flex-col items-center justify-start z-50 transition-opacity duration-300 opacity-0 overflow-y-auto">
-        <div class="bg-white m-4 rounded-xl shadow-2xl max-w-4xl w-full p-6 md:p-10 transform transition-transform duration-300 my-8">
+        <div class="bg-white m-4 rounded-xl shadow-2xl max-w-4xl w-full p-6 md:p-10 transform transition-transform duration-300 my-8 scale-95">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-extrabold text-bee-orange">🛒 Оформлення замовлення</h2>
                 <button onclick="closeCheckoutModal()" class="text-gray-500 hover:text-red-600 transition duration-300 text-3xl font-light">&times;</button>
             </div>
 
             <form id="checkout-form" 
-                action="https://formspree.io/f/xjkprnno" 
-                method="POST" 
-                class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  action="https://formspree.io/f/xjkprnno" 
+                  method="POST" 
+                  class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 
                 <!-- Інформація про клієнта та доставку -->
                 <div class="lg:col-span-2 space-y-6 bg-bg-light p-6 rounded-lg shadow-inner">
@@ -338,8 +347,10 @@
             document.getElementById('modal-body').textContent = message;
             modal.classList.remove('hidden', 'opacity-0');
             modal.classList.add('flex', 'opacity-100');
-            modal.querySelector('div').classList.remove('scale-95');
-            modal.querySelector('div').classList.add('scale-100');
+            // Анімація появи
+            const modalBox = modal.querySelector('div');
+            modalBox.classList.remove('scale-95');
+            modalBox.classList.add('scale-100');
         }
 
         // Глобальна функція для закриття модального вікна повідомлень
@@ -347,13 +358,14 @@
             const modal = document.getElementById('message-modal');
             modal.classList.remove('opacity-100');
             modal.classList.add('opacity-0');
-            modal.querySelector('div').classList.remove('scale-100');
-            modal.querySelector('div').classList.add('scale-95');
+            const modalBox = modal.querySelector('div');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
             
             setTimeout(() => {
                 modal.classList.remove('flex');
                 modal.classList.add('hidden');
-            }, 300);
+            }, 300); // Час має співпадати з transition-duration
         }
 
         // --- ЛОГІКА КОШИКА ТА ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ---
@@ -423,7 +435,7 @@
                                 </div>
                             </div>
                             <button onclick="addToCart(${product.id}, '${product.name.replace(/'/g, "\\'")}')" 
-                                class="w-full py-3 bg-bee-orange text-white font-semibold rounded-lg shadow-md hover:bg-honey-yellow transition duration-300 transform hover:scale-[1.02] active:scale-95">
+                                    class="w-full py-3 bg-bee-orange text-white font-semibold rounded-lg shadow-md hover:bg-honey-yellow transition duration-300 transform hover:scale-[1.02] active:scale-95">
                                 <span class="text-lg">В кошик</span>
                             </button>
                         </div>
@@ -442,11 +454,17 @@
         function updateCartDisplay() {
             const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElement.textContent = totalQuantity;
-            document.getElementById('submit-order-button').disabled = totalQuantity === 0;
+            const submitButton = document.getElementById('submit-order-button');
+            submitButton.disabled = totalQuantity === 0;
+
             if (totalQuantity === 0) {
-                 document.getElementById('submit-order-button').textContent = "Кошик порожній";
+                 submitButton.textContent = "Кошик порожній";
+                 submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+                 submitButton.classList.remove('bg-bee-orange', 'hover:bg-honey-yellow');
             } else {
-                 document.getElementById('submit-order-button').textContent = "ПІДТВЕРДИТИ ЗАМОВЛЕННЯ";
+                 submitButton.textContent = "ПІДТВЕРДИТИ ЗАМОВЛЕННЯ";
+                 submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                 submitButton.classList.add('bg-bee-orange', 'hover:bg-honey-yellow');
             }
         }
 
@@ -477,7 +495,7 @@
             cart = cart.filter(item => item.id !== productId);
             
             updateCartDisplay();
-            renderCartSummary(); 
+            renderCartSummary(); // Оновлюємо підсумок у модалці
             
             if (cart.length === 0) {
                 closeCheckoutModal();
@@ -509,13 +527,13 @@
                 itemEl.className = 'flex items-center justify-between py-2 border-b border-gray-100';
                 itemEl.innerHTML = `
                     <div class="flex-grow min-w-0 pr-4">
-                        <div class="text-text-dark font-medium truncate">${item.name} (${item.quantity} шт.)</div>
+                        <div class="text-text-dark font-medium truncate" title="${item.name}">${item.name} (${item.quantity} шт.)</div>
                     </div>
                     <div class="flex items-center min-w-max">
                         <span class="text-lg font-semibold text-bee-orange ml-4">${itemTotal} ₴</span>
                         
                         <!-- Кнопка видалення -->
-                        <button onclick="removeFromCart(${item.id})" 
+                        <button type="button" onclick="removeFromCart(${item.id})" 
                                 class="ml-4 text-red-500 hover:text-red-700 transition duration-150 p-1 rounded-full hover:bg-red-100" 
                                 title="Видалити товар">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -527,157 +545,184 @@
                 summaryContainer.appendChild(itemEl);
             });
 
-            totalElement.textContent = total.toFixed(0) + ' ₴';
-        }
-
-        // Функція, що показує/ховає поле для номера відділення НП
-        function handleDeliveryChange() {
-            const deliverySelect = document.getElementById('delivery');
-            const branchGroup = document.getElementById('nova-poshta-branch-group');
-            const branchInput = document.getElementById('np-branch');
-            
-            if (deliverySelect.value === 'Нова Пошта') {
-                branchGroup.classList.remove('hidden');
-                branchInput.setAttribute('required', 'required'); 
-            } else {
-                branchGroup.classList.add('hidden');
-                branchInput.removeAttribute('required'); 
-            }
+            totalElement.textContent = `${total} ₴`;
         }
         
-        // Відкриття модального вікна оформлення
+        // --- ЛОГІКА МОДАЛЬНОГО ВІКНА ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ---
+        
+        const checkoutModal = document.getElementById('checkout-modal');
+        const checkoutModalBox = checkoutModal.querySelector('div');
+
+        // Функція: Відкрити модалку кошика
         function openCheckoutModal() {
             if (cart.length === 0) {
-                showModal("Кошик порожній", "Будь ласка, додайте товари до кошика перед оформленням замовлення.");
+                showModal("Кошик порожній", "Будь ласка, додайте товари до кошика, перш ніж оформлювати замовлення.");
                 return;
             }
-
             renderCartSummary();
-            // Ініціалізувати логіку доставки при відкритті
-            handleDeliveryChange(); 
-
-            const checkoutModal = document.getElementById('checkout-modal');
-            checkoutModal.classList.remove('hidden', 'opacity-0');
-            checkoutModal.classList.add('flex', 'opacity-100');
-            document.body.style.overflow = 'hidden';
+            checkoutModal.classList.remove('hidden');
+            // Примусовий reflow для анімації
+            void checkoutModal.offsetWidth; 
+            checkoutModal.classList.remove('opacity-0');
+            checkoutModalBox.classList.remove('scale-95');
+            checkoutModalBox.classList.add('scale-100');
         }
 
-        // Закриття модального вікна оформлення
+        // Функція: Закрити модалку кошика
         function closeCheckoutModal() {
-            const checkoutModal = document.getElementById('checkout-modal');
-            checkoutModal.classList.remove('opacity-100');
             checkoutModal.classList.add('opacity-0');
-            document.body.style.overflow = '';
+            checkoutModalBox.classList.remove('scale-100');
+            checkoutModalBox.classList.add('scale-95');
             setTimeout(() => {
-                checkoutModal.classList.remove('flex');
                 checkoutModal.classList.add('hidden');
-            }, 300);
+            }, 300); // Синхронізація з transition-duration
         }
 
-        // ФУНКЦІЯ: Обробка відправки форми
-        async function submitOrder(event) {
-            event.preventDefault(); // Запобігаємо стандартній відправці форми
+        // Функція: Обробка зміни способу доставки
+        function handleDeliveryChange() {
+            const deliveryMethod = document.getElementById('delivery').value;
+            const npGroup = document.getElementById('nova-poshta-branch-group');
+            const npInput = document.getElementById('np-branch');
 
-            const form = event.target;
-            const submitButton = document.getElementById('submit-order-button');
-            
-            // 0. Валідація на порожній кошик
-            if (cart.length === 0) {
-                showModal("Помилка", "Кошик порожній!");
-                return;
-            }
-
-            const formData = new FormData(form);
-            
-            // 1. Збір даних для валідації
-            const name = formData.get('ПІБ');
-            const phone = formData.get('Телефон');
-            const city = formData.get('Місто');
-            const delivery = formData.get('Служба_доставки');
-            const branch = formData.get('Відділення_НП'); 
-
-            if (!name || !phone || !city) {
-                showModal("Помилка", "Будь ласка, заповніть всі обов'язкові поля: ПІБ, Телефон та Місто.");
-                return;
-            }
-
-            // Перевірка Нової Пошти
-            if (delivery === 'Нова Пошта' && (!branch || branch.trim() === '')) {
-                showModal("Помилка", "Для доставки Новою Поштою необхідно вказати номер відділення або поштомату.");
-                return;
-            }
-            
-            // 2. Створення детального опису замовлення для відправки
-            let orderDetails = cart.map(item => 
-                `${item.name} | ${item.quantity} шт. | ${item.price} ₴/шт. | Разом: ${item.price * item.quantity} ₴`
-            ).join('\n');
-            
-            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-            orderDetails += `\n\nРАЗОМ ДО СПЛАТИ: ${total} ₴`;
-            
-            // 3. Заповнення прихованих полів
-            document.getElementById('Order_Details').value = orderDetails; 
-            document.getElementById('_subject').value = `НОВЕ ЗАМОВЛЕННЯ №${Date.now()} | Сума: ${total} ₴`;
-            
-            // 4. Блокування кнопки та індикація завантаження
-            submitButton.disabled = true;
-            submitButton.innerHTML = 'Надсилаємо...';
-
-            // 5. Відправка даних через fetch (Formspree)
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    // Успішна відправка
-                    closeCheckoutModal();
-                    showModal("Замовлення прийнято!", "Дякуємо! Ваше замовлення успішно оформлено. Ми зв'яжемося з Вами найближчим часом для підтвердження.");
-                    
-                    // Очищення кошика та форми
-                    cart = [];
-                    updateCartDisplay();
-                    form.reset(); 
-
-                } else {
-                    // Помилка відправки
-                    const data = await response.json();
-                    if (Object.hasOwn(data, 'errors')) {
-                        showModal("Помилка відправки", data.errors.map(error => error.field).join(', '));
-                    } else {
-                        showModal("Помилка відправки", "Виникла невідома помилка при надсиланні замовлення. Спробуйте пізніше.");
-                    }
-                }
-            } catch (error) {
-                console.error('Submission error:', error);
-                showModal("Помилка підключення", "Не вдалося з'єднатися з сервером. Перевірте Ваше інтернет-з'єднання.");
-            } finally {
-                // Розблокування кнопки
-                submitButton.disabled = false;
-                updateCartDisplay(); // Оновлення тексту кнопки
+            if (deliveryMethod === 'Нова Пошта') {
+                npGroup.classList.remove('hidden');
+                npInput.required = true;
+            } else {
+                npGroup.classList.add('hidden');
+                npInput.required = false;
+                npInput.value = ''; // Очищуємо поле, якщо обрано інший спосіб
             }
         }
 
+        // --- ФОРМАТУВАННЯ ТЕЛЕФОНУ ---
+        function formatPhoneNumber(value) {
+            // Видаляємо всі нецифрові символи
+            let input = value.replace(/\D/g, '');
+            
+            // Обрізаємо до 12 цифр (380 + 9 цифр номера)
+            input = input.substring(0, 12); 
+            
+            // Починаємо форматування
+            let formatted = "+";
+            
+            if (input.length > 0) {
+                formatted += input.substring(0, 2); // +38
+            }
+            if (input.length > 2) {
+                formatted += " (" + input.substring(2, 5); // +38 (0XX
+            }
+            if (input.length > 5) {
+                formatted += ") " + input.substring(5, 8); // +38 (0XX) XXX
+            }
+            if (input.length > 8) {
+                formatted += " " + input.substring(8, 10); // +38 (0XX) XXX XX
+            }
+            if (input.length > 10) {
+                formatted += " " + input.substring(10, 12); // +38 (0XX) XXX XX XX
+            }
+            
+            return formatted;
+        }
 
         // --- ІНІЦІАЛІЗАЦІЯ ---
-        window.onload = function() {
-            // 1. Відмалювати товари
+        document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
+            updateCartDisplay();
+            handleDeliveryChange(); // Встановлюємо правильний стан поля НП при завантаженні
 
-            // 2. Навішуємо обробник подій на кнопку кошика
+            // Слухач для кнопки кошика в хедері
             document.getElementById('cart-button').addEventListener('click', openCheckoutModal);
 
-            // 3. Навішуємо обробник подій на форму оформлення
-            document.getElementById('checkout-form').addEventListener('submit', submitOrder);
+            // Слухач для форматування телефону
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', (e) => {
+                // Зберігаємо позицію курсора
+                let selectionStart = e.target.selectionStart;
+                let originalLength = e.target.value.length;
+                
+                let formattedValue = formatPhoneNumber(e.target.value);
+                e.target.value = formattedValue;
+                
+                // Відновлюємо позицію курсора
+                let newLength = formattedValue.length;
+                if (selectionStart !== null) {
+                    // Коригуємо позицію, якщо символи були додані/видалені перед курсором
+                    selectionStart += (newLength - originalLength);
+                    // Переконуємось, що курсор не виходить за межі
+                    e.target.setSelectionRange(selectionStart, selectionStart);
+                }
+            });
 
-            // 4. Ініціалізуємо відображення кошика
-            updateCartDisplay();
-        };
+            // Слухач для відправки форми
+            const form = document.getElementById('checkout-form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Перевіряємо валідність ще раз
+                handleDeliveryChange(); 
+                if (!form.checkValidity()) {
+                    showModal("Помилка валідації", "Будь ласка, заповніть усі обов'язкові поля, позначені (*).");
+                    form.reportValidity(); // Показуємо стандартні браузерні підказки
+                    return;
+                }
 
+                const submitButton = document.getElementById('submit-order-button');
+                submitButton.disabled = true;
+                submitButton.textContent = "Відправка...";
+
+                // 1. Формуємо деталі замовлення
+                let orderDetailsText = "Склад замовлення:\n";
+                let total = 0;
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    orderDetailsText += `- ${item.name}: ${item.quantity} шт. x ${item.price} ₴ = ${itemTotal} ₴\n`;
+                    total += itemTotal;
+                });
+                orderDetailsText += `\nЗагальна сума: ${total} ₴`;
+                
+                document.getElementById('Order_Details').value = orderDetailsText;
+
+                // 2. Формуємо тему листа
+                const customerName = document.getElementById('name').value;
+                document.getElementById('_subject').value = `Нове замовлення від "${customerName}" на сайті "Сонячний Нектар"`;
+
+                // 3. Відправляємо дані
+                const formData = new FormData(form);
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Успіх
+                        showModal("Дякуємо за замовлення!", `Шановний(а) ${customerName}, ваше замовлення успішно прийнято! Ми зв'яжемося з вами найближчим часом.`);
+                        cart = []; // Очищуємо кошик
+                        updateCartDisplay();
+                        form.reset(); // Скидаємо форму
+                        handleDeliveryChange(); // Ховаємо поле НП
+                        closeCheckoutModal();
+                    } else {
+                        // Помилка з боку Formspree
+                        const errorData = await response.json();
+                        let errorMessage = errorData.errors ? errorData.errors.map(err => err.message).join(', ') : 'Невідома помилка сервера.';
+                        showModal("Помилка відправки", `Не вдалося відправити замовлення: ${errorMessage}`);
+                    }
+                } catch (error) {
+                    // Мережева помилка
+                    showModal("Мережева помилка", "Не вдалося підключитися до сервера. Будь ласка, перевірте інтернет-з'єднання та спробуйте ще раз.");
+                } finally {
+                    // Повертаємо кнопку до нормального стану
+                    submitButton.disabled = false;
+                    updateCartDisplay(); // Це оновить текст кнопки
+                }
+            });
+        });
     </script>
 </body>
 </html>
+
